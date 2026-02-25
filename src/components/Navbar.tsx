@@ -281,7 +281,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="hidden lg:flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-blue-800 transition-all shadow-md active:scale-95"
           >
-            Resident Portal <ExternalLink className="w-3 h-3" />
+            Buildium Portal <ExternalLink className="w-3 h-3" />
           </a>
 
           {/* MOBILE TOGGLE */}

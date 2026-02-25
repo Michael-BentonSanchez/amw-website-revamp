@@ -590,7 +590,7 @@ const WilmingtonLanding = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
               Coastal Management{" "}
-              <span className="text-blue-700">Redefined.</span>
+              <span className="text-blue-700">Redefined</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
               We proudly serve the coastal communities of Wilmington, North
@@ -668,7 +668,7 @@ const WilmingtonLanding = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
-                title: "Financial Stewardship",
+                title: "Financials",
                 icon: <BarChart3 />,
                 desc: "Transparent accounting and effortless dues collection through our integrated portals.",
               },
@@ -695,7 +695,7 @@ const WilmingtonLanding = () => {
               {
                 title: "Digital Solutions",
                 icon: <Monitor className="w-6 h-6" />,
-                desc: "Modern portal integration via the Buildium platform for real-time community management.",
+                desc: "Modern portal via the Buildium platform for real-time community management.",
               },
             ].map((s, i) => (
               <motion.div
@@ -856,7 +856,7 @@ const WilmingtonLanding = () => {
                 disabled={isSubmitting}
                 className="w-full bg-blue-700 text-white p-5 rounded-2xl font-bold hover:bg-blue-800 transition-all shadow-lg active:scale-[0.98] disabled:bg-slate-300 hover:cursor-pointer"
               >
-                {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                {isSubmitting ? "Sending..." : "Submit"}
               </button>
             </motion.form>
 
