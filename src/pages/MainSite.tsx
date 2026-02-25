@@ -703,8 +703,8 @@ const WilmingtonLanding = () => {
                 whileHover={{ y: -8 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all"
+                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
               >
                 <div className="mb-6 p-4 rounded-2xl bg-slate-50 text-blue-700 w-fit group-hover:bg-blue-700 group-hover:text-white transition-colors">
                   {s.icon}
