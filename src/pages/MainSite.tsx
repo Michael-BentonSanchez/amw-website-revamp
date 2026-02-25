@@ -496,7 +496,6 @@ import {
   Monitor,
   MapPin,
   Clock,
-  ChevronRight,
 } from "lucide-react";
 import "keen-slider/keen-slider.min.css";
 
