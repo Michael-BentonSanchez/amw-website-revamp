@@ -1021,9 +1021,10 @@ const WilmingtonLanding = () => {
             ].map((office, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 bg-slate-50 rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="w-full md:w-48 lg:w-64 h-48 md:h-auto shrink-0 overflow-hidden rounded-2xl border border-slate-200">
