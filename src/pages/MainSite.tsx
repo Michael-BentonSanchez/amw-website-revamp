@@ -287,12 +287,21 @@ const WilmingtonLanding = () => {
                 desc: "Modern portal via the Buildium platform for real-time community management.",
               },
             ].map((s, i) => (
+              // <motion.div
+              //   key={i}
+              //   initial={{ opacity: 0 }}
+              //   animate={{ opacity: 1 }}
+              //   viewport={{ once: true }}
+              //   transition={{ duration: 0.4, delay: i * 0.07 }}
+              //   whileHover={{ y: -8 }}
+              //   className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
+              // >
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.07 }}
                 whileHover={{ y: -8 }}
                 className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
               >
@@ -350,12 +359,20 @@ const WilmingtonLanding = () => {
               img: nickImg,
             },
           ].map((m, i) => (
+            // <motion.div
+            //   key={i}
+            //   initial={{ opacity: 0 }}
+            //   animate={{ opacity: 1 }}
+            //   viewport={{ once: true }}
+            //   transition={{ duration: 0.4, delay: i * 0.1 }}
+            //   className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
+            // >
             <motion.div
               key={i}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
             >
               <div className="aspect-[4/5] overflow-hidden bg-slate-200">
@@ -534,12 +551,20 @@ const WilmingtonLanding = () => {
                   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3297.8026479713712!2d-77.88214867427493!3d34.25357912308178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89a9f4d66bec9f4b%3A0x727ecd96c6b757ad!2sHunters%20Crossing%20Apartments!5e0!3m2!1sen!2sus!4v1742838535775!5m2!1sen!2sus",
               },
             ].map((office, i) => (
+              // <motion.div
+              //   key={i}
+              //   initial={{ opacity: 0 }}
+              //   animate={{ opacity: 1 }}
+              //   viewport={{ once: true }}
+              //   transition={{ duration: 0.4, delay: i * 0.1 }}
+              //   className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 bg-slate-50 rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-lg"
+              // >
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 bg-slate-50 rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="w-full md:w-48 lg:w-64 h-48 md:h-auto shrink-0 overflow-hidden rounded-2xl border border-slate-200">
