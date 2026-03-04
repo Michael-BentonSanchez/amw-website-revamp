@@ -16,7 +16,7 @@
 // } from "lucide-react";
 // import "keen-slider/keen-slider.min.css";
 
-// // Asset Imports (Assumes your Vite/React setup paths)
+// // Asset Imports
 // import heroImg from "../assets/beach.jpg";
 // import condo1 from "../assets/condo-pic-1.jpg";
 // import condo2 from "../assets/condo-pic-2.jpg";
@@ -28,7 +28,6 @@
 // import nickImg from "../assets/nick_amw_staff.png";
 
 // const WilmingtonLanding = () => {
-//   /* --- STATE & LOGIC --- */
 //   const [formData, setFormData] = useState({
 //     firstName: "",
 //     lastName: "",
@@ -39,7 +38,6 @@
 //   });
 //   const [isSubmitting, setIsSubmitting] = useState(false);
 
-//   // 1. About Slider
 //   const [sliderRef] = useKeenSlider({
 //     loop: true,
 //     initial: 0,
@@ -48,9 +46,9 @@
 //     },
 //   });
 
-//   // 2. Form Handling
 //   const handleChange = (e: any) =>
 //     setFormData({ ...formData, [e.target.id]: e.target.value });
+
 //   const submitForm = async (e: any) => {
 //     e.preventDefault();
 //     setIsSubmitting(true);
@@ -72,26 +70,26 @@
 //     }
 //   };
 
-//   /* --- REUSABLE STYLES --- */
 //   const sectionHeader = (sub: string, main: string) => (
-//     <div className="mb-16 border-l-4 border-blue-700 pl-6">
-//       <h2 className="text-sm uppercase tracking-[0.2em] text-blue-700 font-bold mb-2">
+//     <div className="mb-10 md:mb-16 border-l-4 border-blue-700 pl-4 md:pl-6">
+//       <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-blue-700 font-bold mb-2">
 //         {sub}
 //       </h2>
-//       <h3 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+//       <h3 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
 //         {main}
 //       </h3>
 //     </div>
 //   );
 
 //   return (
-//     <div className="bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+//     <div className="bg-white text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
 //       {/* --- HERO SECTION --- */}
 //       <section
 //         id="home"
-//         className="relative h-[95vh] flex flex-col lg:flex-row items-stretch overflow-hidden"
+//         className="relative min-h-[70vh] lg:min-h-[90vh] flex flex-col md:flex-row items-stretch overflow-hidden"
 //       >
-//         <div className="w-full lg:w-3/5 relative">
+//         {/* Image: Now splits at 'md' (768px) instead of 'lg' */}
+//         <div className="w-full md:w-1/2 lg:w-3/5 relative h-[45vh] md:h-auto">
 //           <img
 //             src={heroImg}
 //             className="h-full w-full object-cover"
@@ -99,17 +97,19 @@
 //           />
 //           <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
 //         </div>
-//         <div className="w-full lg:w-2/5 bg-slate-50 flex items-center p-12 lg:p-20">
+
+//         {/* Text Content: Now side-by-side at 912px (Surface Pro size) */}
+//         <div className="w-full md:w-1/2 lg:w-2/5 bg-slate-50 flex items-center p-8 sm:p-12 lg:p-20">
 //           <motion.div
 //             initial={{ opacity: 0, x: 20 }}
 //             animate={{ opacity: 1, x: 0 }}
 //             transition={{ duration: 0.8 }}
 //           >
-//             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+//             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
 //               Coastal Management{" "}
-//               <span className="text-blue-700">Redefined.</span>
+//               <span className="text-blue-700">Redefined</span>
 //             </h1>
-//             <p className="text-xl text-slate-600 leading-relaxed mb-8">
+//             <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
 //               We proudly serve the coastal communities of Wilmington, North
 //               Carolina with a dedicated team of community management experts.
 //             </p>
@@ -118,13 +118,16 @@
 //       </section>
 
 //       {/* --- ABOUT SECTION --- */}
-//       <section id="about" className="py-24 px-6 max-w-7xl mx-auto scroll-mt-20">
-//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+//       <section
+//         id="about"
+//         className="py-16 md:py-24 px-6 max-w-7xl mx-auto scroll-mt-20"
+//       >
+//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
 //           <motion.div
 //             whileInView={{ opacity: 1, scale: 1 }}
 //             initial={{ opacity: 0, scale: 0.95 }}
 //             viewport={{ once: true }}
-//             className="relative rounded-[40px] overflow-hidden shadow-2xl aspect-square"
+//             className="relative rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl aspect-square"
 //           >
 //             <div ref={sliderRef} className="keen-slider h-full">
 //               {[condo1, condo2, condo3].map((img, i) => (
@@ -132,37 +135,35 @@
 //                   <img
 //                     src={img}
 //                     className="w-full h-full object-cover"
-//                     alt=""
+//                     alt="Property Gallery"
 //                   />
 //                 </div>
 //               ))}
 //             </div>
-//             {/* <div className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-white/20 text-center">
-//               <p className="text-blue-700 font-black text-4xl">25</p>
-//               <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
-//                 Years Local
-//               </p>
-//             </div> */}
 //           </motion.div>
 //           <div>
 //             {sectionHeader("About us", "Experience Matters in HOA Management")}
-//             <p className="text-lg text-slate-600 leading-relaxed mb-10">
+//             <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-10">
 //               Association Management of Wilmington brings 25 years of experience
 //               providing professional HOA management services in Wilmington, NC.
 //               We are dedicated to maintaining well-managed, welcoming
 //               communities through high standards, transparent communication, and
 //               a commitment to helping neighborhoods thrive.
 //             </p>
-//             <div className="grid grid-cols-2 gap-8 border-t border-slate-100 pt-8">
+//             <div className="grid grid-cols-2 gap-6 md:gap-8 border-t border-slate-100 pt-8">
 //               <div>
-//                 <p className="font-bold text-3xl">500+</p>
-//                 <p className="text-slate-500 text-xs uppercase tracking-widest">
+//                 <p className="font-bold text-2xl md:text-3xl text-slate-900">
+//                   500+
+//                 </p>
+//                 <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">
 //                   Doors Managed
 //                 </p>
 //               </div>
 //               <div>
-//                 <p className="font-bold text-3xl">25+</p>
-//                 <p className="text-slate-500 text-xs uppercase tracking-widest">
+//                 <p className="font-bold text-2xl md:text-3xl text-slate-900">
+//                   25+
+//                 </p>
+//                 <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">
 //                   Years Experience
 //                 </p>
 //               </div>
@@ -172,16 +173,19 @@
 //       </section>
 
 //       {/* --- SERVICES SECTION --- */}
-//       <section id="services" className="py-24 bg-slate-50 scroll-mt-20">
+//       <section
+//         id="services"
+//         className="py-16 md:py-24 bg-slate-50 scroll-mt-20"
+//       >
 //         <div className="max-w-7xl mx-auto px-6">
 //           {sectionHeader(
 //             "Our Expertise",
 //             "Professional Solutions for Coastal Associations",
 //           )}
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 //             {[
 //               {
-//                 title: "Financial Stewardship",
+//                 title: "Financials",
 //                 icon: <BarChart3 />,
 //                 desc: "Transparent accounting and effortless dues collection through our integrated portals.",
 //               },
@@ -208,22 +212,28 @@
 //               {
 //                 title: "Digital Solutions",
 //                 icon: <Monitor className="w-6 h-6" />,
-//                 desc: "Rule enforcement, legal compliance, and modern portal integration via Buildium platform.",
+//                 desc: "Modern portal via the Buildium platform for real-time community management.",
 //               },
 //             ].map((s, i) => (
 //               <motion.div
 //                 key={i}
-//                 whileHover={{ y: -12, transition: { duration: 0.2 } }}
-//                 initial={{ opacity: 0, y: 20 }}
-//                 whileInView={{ opacity: 1, y: 0 }}
-//                 viewport={{ once: true }}
-//                 className="group p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-2xl transition-all"
+//                 whileHover={{ y: -8 }}
+//                 // initial={{ opacity: 0, y: 20 }}
+//                 // whileInView={{ opacity: 1, y: 0 }}
+//                 // viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+//                 initial={false}
+//                 animate={{ x: 100 }}
+//                 className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
 //               >
 //                 <div className="mb-6 p-4 rounded-2xl bg-slate-50 text-blue-700 w-fit group-hover:bg-blue-700 group-hover:text-white transition-colors">
 //                   {s.icon}
 //                 </div>
-//                 <h4 className="text-2xl font-bold mb-4">{s.title}</h4>
-//                 <p className="text-slate-600 leading-relaxed">{s.desc}</p>
+//                 <h4 className="text-xl md:text-2xl font-bold mb-4">
+//                   {s.title}
+//                 </h4>
+//                 <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+//                   {s.desc}
+//                 </p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -231,9 +241,12 @@
 //       </section>
 
 //       {/* --- STAFF SECTION --- */}
-//       <section id="staff" className="py-24 max-w-7xl mx-auto px-6 scroll-mt-20">
+//       <section
+//         id="staff"
+//         className="py-16 md:py-24 max-w-7xl mx-auto px-6 scroll-mt-20"
+//       >
 //         {sectionHeader("The Team", "The Experts Behind Your Community")}
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 //           {[
 //             {
 //               name: "Leo Andrades",
@@ -261,7 +274,7 @@
 //             },
 //             {
 //               name: "Nick Joseph",
-//               role: "Founder & Advisory Board Member",
+//               role: "Founder & Advisory Board",
 //               email: "nick@amwllc.net",
 //               img: nickImg,
 //             },
@@ -271,7 +284,7 @@
 //               initial={{ opacity: 0, y: 20 }}
 //               whileInView={{ opacity: 1, y: 0 }}
 //               viewport={{ once: true }}
-//               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all"
+//               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
 //             >
 //               <div className="aspect-[4/5] overflow-hidden bg-slate-200">
 //                 <img
@@ -280,14 +293,14 @@
 //                   alt={m.name}
 //                 />
 //               </div>
-//               <div className="p-8">
-//                 <h3 className="text-2xl font-bold mb-1">{m.name}</h3>
+//               <div className="p-6 md:p-8 text-center sm:text-left">
+//                 <h3 className="text-xl md:text-2xl font-bold mb-1">{m.name}</h3>
 //                 <p className="text-blue-700 font-bold text-[10px] uppercase tracking-widest mb-6">
 //                   {m.role}
 //                 </p>
 //                 <a
 //                   href={`mailto:${m.email}`}
-//                   className="flex items-center gap-2 text-sm text-slate-500 hover:text-blue-700 transition-colors"
+//                   className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-blue-700 transition-colors"
 //                 >
 //                   <Mail className="w-4 h-4" /> {m.email}
 //                 </a>
@@ -298,19 +311,16 @@
 //       </section>
 
 //       {/* --- CONTACT SECTION --- */}
-//       <section id="contact" className="py-24 bg-slate-50 scroll-mt-20">
-//         {/* Unified max-w-7xl container to match Services and Staff */}
+//       <section id="contact" className="py-16 md:py-24 bg-slate-50 scroll-mt-20">
 //         <div className="max-w-7xl mx-auto px-6">
 //           {sectionHeader("Connect", "Start the Conversation with AMW")}
-
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-//             {/* Form Block */}
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
 //             <motion.form
 //               onSubmit={submitForm}
-//               className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100 space-y-6"
+//               className="bg-white p-6 sm:p-10 rounded-[32px] md:rounded-[40px] shadow-sm border border-slate-100 space-y-6"
 //             >
-//               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-//                 <div className="md:col-span-2">
+//               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+//                 <div className="sm:col-span-2">
 //                   <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
 //                     Association Name*
 //                   </label>
@@ -319,7 +329,7 @@
 //                     required
 //                     value={formData.association}
 //                     onChange={handleChange}
-//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all"
+//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
 //                   />
 //                 </div>
 //                 <div>
@@ -331,7 +341,7 @@
 //                     required
 //                     value={formData.firstName}
 //                     onChange={handleChange}
-//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all"
+//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
 //                   />
 //                 </div>
 //                 <div>
@@ -343,11 +353,10 @@
 //                     required
 //                     value={formData.lastName}
 //                     onChange={handleChange}
-//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all"
+//                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
 //                   />
 //                 </div>
 //               </div>
-
 //               <div>
 //                 <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
 //                   Message*
@@ -359,10 +368,9 @@
 //                   placeholder="How can we help your community?"
 //                   value={formData.message}
 //                   onChange={handleChange}
-//                   className="w-full p-4 bg-slate-50 rounded-xl outline-none resize-none focus:ring-2 focus:ring-blue-100 transition-all"
+//                   className="w-full p-4 bg-slate-50 rounded-xl outline-none resize-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
 //                 />
 //               </div>
-
 //               <button
 //                 disabled={isSubmitting}
 //                 className="w-full bg-blue-700 text-white p-5 rounded-2xl font-bold hover:bg-blue-800 transition-all shadow-lg active:scale-[0.98] disabled:bg-slate-300 hover:cursor-pointer"
@@ -371,33 +379,31 @@
 //               </button>
 //             </motion.form>
 
-//             {/* Info Cards Block */}
-//             <div className="space-y-8">
-//               <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex gap-6 items-center">
-//                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
-//                   <Phone className="w-6 h-6" />
+//             <div className="space-y-6">
+//               <div className="p-6 md:p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex gap-6 items-center">
+//                 <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
+//                   <Phone className="w-5 h-5 md:w-6 md:h-6" />
 //                 </div>
 //                 <div>
 //                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
 //                     Call Us
 //                   </h4>
-//                   <p className="text-xl font-bold text-slate-900">
+//                   <p className="text-lg md:text-xl font-bold text-slate-900">
 //                     (910) 794-2570
 //                   </p>
 //                 </div>
 //               </div>
-
-//               <div className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex gap-6 items-center">
-//                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
-//                   <Mail className="w-6 h-6" />
+//               <div className="p-6 md:p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex gap-6 items-center">
+//                 <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
+//                   <Mail className="w-5 h-5 md:w-6 md:h-6" />
 //                 </div>
 //                 <div>
 //                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-//                     Email General
+//                     Email
 //                   </h4>
 //                   <a
 //                     href="mailto:sam@amwllc.net"
-//                     className="text-xl font-bold text-blue-700 hover:underline"
+//                     className="text-lg md:text-xl font-bold text-blue-700 hover:underline"
 //                   >
 //                     sam@amwllc.net
 //                   </a>
@@ -409,11 +415,10 @@
 //       </section>
 
 //       {/* --- OFFICES SECTION --- */}
-//       <section id="offices" className="py-24 bg-white scroll-mt-20">
+//       <section id="offices" className="py-20 md:py-29 bg-white scroll-mt-20">
 //         <div className="max-w-7xl mx-auto px-6">
 //           {sectionHeader("Our Locations", "Visit Our Wilmington Offices")}
-
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
 //             {[
 //               {
 //                 name: "Cape Cottages",
@@ -435,21 +440,18 @@
 //                 initial={{ opacity: 0, y: 20 }}
 //                 whileInView={{ opacity: 1, y: 0 }}
 //                 viewport={{ once: true }}
-//                 className="group flex flex-col md:flex-row gap-8 p-8 bg-slate-50 rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-xl"
+//                 className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 bg-slate-50 rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-lg"
 //               >
-//                 {/* Map Container */}
-//                 <div className="w-full md:w-64 h-64 shrink-0 overflow-hidden rounded-3xl border border-slate-200">
+//                 <div className="w-full md:w-48 lg:w-64 h-48 md:h-auto shrink-0 overflow-hidden rounded-2xl border border-slate-200">
 //                   <iframe
 //                     src={office.mapUrl}
-//                     className="w-full h-full hover:grayscale-0 transition-all duration-500"
+//                     className="w-full h-full transition-all duration-500"
 //                     loading="lazy"
 //                     title={`${office.name} map`}
 //                   ></iframe>
 //                 </div>
-
-//                 {/* Info Block */}
 //                 <div className="flex flex-col justify-center">
-//                   <h4 className="text-2xl font-bold text-slate-900 mb-4">
+//                   <h4 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
 //                     {office.name}
 //                   </h4>
 //                   <div className="space-y-4">
@@ -472,7 +474,7 @@
 //       </section>
 
 //       {/* --- FOOTER --- */}
-//       <footer className="py-12 bg-slate-50 text-center text-black text-xs font-medium uppercase tracking-[0.2em]">
+//       <footer className="py-12 bg-slate-50 text-center text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
 //         © {new Date().getFullYear()} Association Management of Wilmington
 //       </footer>
 //     </div>
@@ -481,8 +483,13 @@
 
 // export default WilmingtonLanding;
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  useInView,
+  useAnimation,
+  AnimatePresence,
+} from "framer-motion";
 import { useKeenSlider } from "keen-slider/react";
 import emailjs from "@emailjs/browser";
 import {
@@ -496,6 +503,9 @@ import {
   Monitor,
   MapPin,
   Clock,
+  CheckCircle,
+  XCircle,
+  X,
 } from "lucide-react";
 import "keen-slider/keen-slider.min.css";
 
@@ -510,6 +520,76 @@ import samImg from "../assets/sam_amw_staff.png";
 import kimImg from "../assets/kim_amw_staff.jpg";
 import nickImg from "../assets/nick_amw_staff.png";
 
+// ─── NEW: Animated Stat ──────────────────────────────────────────────────────
+const AnimatedStat = ({ value, label }: { value: string; label: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) controls.start({ opacity: 1, y: 0 });
+  }, [isInView, controls]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={controls}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <p className="font-bold text-2xl md:text-3xl text-slate-900">{value}</p>
+      <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">
+        {label}
+      </p>
+    </motion.div>
+  );
+};
+
+// ─── Toast Alert ─────────────────────────────────────────────────────────────
+const Toast = ({
+  type,
+  onClose,
+}: {
+  type: "success" | "error";
+  onClose: () => void;
+}) => {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 4000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 40 }}
+      className={`fixed bottom-6 right-6 z-50 flex items-center gap-4 px-6 py-4 rounded-2xl shadow-xl border text-sm font-semibold ${
+        type === "success"
+          ? "bg-white border-green-100 text-green-800"
+          : "bg-white border-red-100 text-red-800"
+      }`}
+    >
+      {type === "success" ? (
+        <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
+      ) : (
+        <XCircle className="w-5 h-5 text-red-500 shrink-0" />
+      )}
+      <span>
+        {type === "success"
+          ? "Message sent! We'll be in touch soon."
+          : "Something went wrong. Please try again."}
+      </span>
+      <button
+        onClick={onClose}
+        className="ml-2 text-slate-400 hover:text-slate-600 transition-colors"
+      >
+        <X className="w-4 h-4" />
+      </button>
+    </motion.div>
+  );
+};
+
+// ─── Main Component ──────────────────────────────────────────────────────────
 const WilmingtonLanding = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -520,12 +600,18 @@ const WilmingtonLanding = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
+  const [toast, setToast] = useState<"success" | "error" | null>(null);
 
+  // FIX: Clear interval on destroy to prevent memory leak
   const [sliderRef] = useKeenSlider({
     loop: true,
     initial: 0,
     created(s) {
-      setInterval(() => s.next(), 4000);
+      const interval = setInterval(() => s.next(), 4000);
+      s.on("destroyed", () => clearInterval(interval));
     },
   });
 
@@ -536,8 +622,11 @@ const WilmingtonLanding = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await emailjs.send("SERVICE_ID", "TEMPLATE_ID", formData, "PUBLIC_KEY");
-      alert("Inquiry Sent Successfully");
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, {
+        publicKey: PUBLIC_KEY,
+      });
+
+      setToast("success");
       setFormData({
         firstName: "",
         lastName: "",
@@ -547,7 +636,7 @@ const WilmingtonLanding = () => {
         message: "",
       });
     } catch (err) {
-      console.error(err);
+      setToast("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -571,7 +660,6 @@ const WilmingtonLanding = () => {
         id="home"
         className="relative min-h-[70vh] lg:min-h-[90vh] flex flex-col md:flex-row items-stretch overflow-hidden"
       >
-        {/* Image: Now splits at 'md' (768px) instead of 'lg' */}
         <div className="w-full md:w-1/2 lg:w-3/5 relative h-[45vh] md:h-auto">
           <img
             src={heroImg}
@@ -581,7 +669,6 @@ const WilmingtonLanding = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
         </div>
 
-        {/* Text Content: Now side-by-side at 912px (Surface Pro size) */}
         <div className="w-full md:w-1/2 lg:w-2/5 bg-slate-50 flex items-center p-8 sm:p-12 lg:p-20">
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -633,23 +720,10 @@ const WilmingtonLanding = () => {
               communities through high standards, transparent communication, and
               a commitment to helping neighborhoods thrive.
             </p>
+            {/* FIX: Replaced static divs with animated scroll-in stat components */}
             <div className="grid grid-cols-2 gap-6 md:gap-8 border-t border-slate-100 pt-8">
-              <div>
-                <p className="font-bold text-2xl md:text-3xl text-slate-900">
-                  500+
-                </p>
-                <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">
-                  Doors Managed
-                </p>
-              </div>
-              <div>
-                <p className="font-bold text-2xl md:text-3xl text-slate-900">
-                  25+
-                </p>
-                <p className="text-slate-500 text-[10px] md:text-xs uppercase tracking-widest">
-                  Years Experience
-                </p>
-              </div>
+              <AnimatedStat value="500+" label="Doors Managed" />
+              <AnimatedStat value="25+" label="Years Experience" />
             </div>
           </div>
         </div>
@@ -700,10 +774,11 @@ const WilmingtonLanding = () => {
             ].map((s, i) => (
               <motion.div
                 key={i}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
                 whileHover={{ y: -8 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                 className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
               >
                 <div className="mb-6 p-4 rounded-2xl bg-slate-50 text-blue-700 w-fit group-hover:bg-blue-700 group-hover:text-white transition-colors">
@@ -762,9 +837,10 @@ const WilmingtonLanding = () => {
           ].map((m, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
             >
               <div className="aspect-[4/5] overflow-hidden bg-slate-200">
@@ -837,6 +913,32 @@ const WilmingtonLanding = () => {
                     className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
                   />
                 </div>
+                {/* FIX: Added missing Email and Phone inputs */}
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
+                    Email*
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
+                    Phone
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full p-4 bg-slate-50 rounded-xl outline-none focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+                  />
+                </div>
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
@@ -883,10 +985,10 @@ const WilmingtonLanding = () => {
                     Email
                   </h4>
                   <a
-                    href="mailto:sam@amwllc.net"
+                    href="mailto:info@amwllc.net"
                     className="text-lg md:text-xl font-bold text-blue-700 hover:underline"
                   >
-                    sam@amwllc.net
+                    info@amwllc.net
                   </a>
                 </div>
               </div>
@@ -896,9 +998,10 @@ const WilmingtonLanding = () => {
       </section>
 
       {/* --- OFFICES SECTION --- */}
-      <section id="offices" className="py-20 md:py-29 bg-white scroll-mt-20">
+      {/* FIX: `py-29` → `py-20` */}
+      <section id="offices" className="py-20 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          {sectionHeader("Our Locations", "Visit Our Wilmington Offices")}
+          {sectionHeader("Locations", "Our Wilmington Offices")}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
             {[
               {
@@ -958,6 +1061,11 @@ const WilmingtonLanding = () => {
       <footer className="py-12 bg-slate-50 text-center text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em]">
         © {new Date().getFullYear()} Association Management of Wilmington
       </footer>
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toast && <Toast type={toast} onClose={() => setToast(null)} />}
+      </AnimatePresence>
     </div>
   );
 };

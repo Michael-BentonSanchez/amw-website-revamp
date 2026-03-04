@@ -190,6 +190,15 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
+      // When near the bottom, force Offices to be active
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 50;
+
+      if (nearBottom) {
+        setActiveSection("offices");
+        return;
+      }
+
       const sections = navLinks.map((link) => link.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
