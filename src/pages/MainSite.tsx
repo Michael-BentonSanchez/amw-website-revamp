@@ -31,7 +31,6 @@ import condo2 from "../assets/condo-pic-2.jpg";
 import condo3 from "../assets/condo-pic-3.jpg";
 import leoImg from "../assets/leo_amw_staff.png";
 import ireacaImg from "../assets/ireaca_amw_staff.jpg";
-import samImg from "../assets/sam_amw_staff.png";
 import kimImg from "../assets/kim_amw_staff.jpg";
 import nickImg from "../assets/nick_amw_staff.png";
 
@@ -339,12 +338,6 @@ const WilmingtonLanding = () => {
               role: "Community Agent",
               email: "ireaca.bernard@amwllc.net",
               img: ireacaImg,
-            },
-            {
-              name: "Sam Evans",
-              role: "Operations Manager",
-              email: "sam@amwllc.net",
-              img: samImg,
             },
             {
               name: "Kim Hampton",
