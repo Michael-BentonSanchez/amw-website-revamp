@@ -538,7 +538,7 @@ const WilmingtonLanding = () => {
                     </a>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-slate-100 pb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 pb-3">
                     <span className="text-slate-600 font-medium">
                       New Owners
                     </span>
