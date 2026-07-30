@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import leoimg from "../assets/leo_amw_staff.png";
 import ireacaimg from "../assets/ireaca_amw_staff.jpg";
-import samimg from "../assets/sam_amw_staff.png";
 import kimimg from "../assets/kim_amw_staff.jpg";
 import nickimg from "../assets/nick_amw_staff.png";
 
@@ -21,16 +20,15 @@ const team = [
     image: ireacaimg,
   },
   {
-    name: "Sam Evans",
-    role: "Operations Manager",
-    email: "sam@amwllc.net",
-    phone: "(910) 465-5385",
-    image: samimg,
+    name: "Sara Chapman",
+    role: "Director of Operations",
+    email: "sara@amwllc.net",
+    image: kimimg,
   },
   {
-    name: "Kim Hampton",
-    role: "Community Manager",
-    email: "kim@amwllc.net",
+    name: "Elizabeth Workman",
+    role: "Director of Finance",
+    email: "elizabeth@amwllc.net",
     image: kimimg,
   },
   {
@@ -82,14 +80,14 @@ const Staff = () => {
               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
             >
               {/* Image Container */}
-              <div className="aspect-[4/5] overflow-hidden bg-slate-200 relative">
+              <div className="aspect-4/5 overflow-hidden bg-slate-200 relative">
                 <img
                   src={member.image}
                   alt={member.name}
                   className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${member.name === "Leo Andrades" ? "object-top" : ""}`}
                 />
                 {/* Subtle overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-900/20 to-transparent" />
               </div>
 
               {/* Content */}

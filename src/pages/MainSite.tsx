@@ -13,6 +13,7 @@ import {
   ShieldCheck,
   BarChart3,
   Users,
+  User,
   ClipboardList,
   Wrench,
   Monitor,
@@ -31,7 +32,6 @@ import condo2 from "../assets/condo-pic-2.jpg";
 import condo3 from "../assets/condo-pic-3.jpg";
 import leoImg from "../assets/leo_amw_staff.png";
 import ireacaImg from "../assets/ireaca_amw_staff.jpg";
-import kimImg from "../assets/kim_amw_staff.jpg";
 import nickImg from "../assets/nick_amw_staff.png";
 
 // ─── NEW: Animated Stat ──────────────────────────────────────────────────────
@@ -234,7 +234,6 @@ const WilmingtonLanding = () => {
               communities through high standards, transparent communication, and
               a commitment to helping neighborhoods thrive.
             </p>
-            {/* FIX: Replaced static divs with animated scroll-in stat components */}
             <div className="grid grid-cols-2 gap-6 md:gap-8 border-t border-slate-100 pt-8">
               <AnimatedStat value="500+" label="Doors Managed" />
               <AnimatedStat value="25+" label="Years Experience" />
@@ -286,15 +285,6 @@ const WilmingtonLanding = () => {
                 desc: "Modern portal via the Buildium platform for real-time community management.",
               },
             ].map((s, i) => (
-              // <motion.div
-              //   key={i}
-              //   initial={{ opacity: 0 }}
-              //   animate={{ opacity: 1 }}
-              //   viewport={{ once: true }}
-              //   transition={{ duration: 0.4, delay: i * 0.07 }}
-              //   whileHover={{ y: -8 }}
-              //   className="group p-6 md:p-10 bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all transform-gpu"
-              // >
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
@@ -340,10 +330,16 @@ const WilmingtonLanding = () => {
               img: ireacaImg,
             },
             {
-              name: "Kim Hampton",
-              role: "Community Agent",
-              email: "kim@amwllc.net",
-              img: kimImg,
+              name: "Sara Chapman",
+              role: "Director of Operations",
+              email: "sara@amwllc.net",
+              img: null,
+            },
+            {
+              name: "Elizabeth Workman",
+              role: "Director of Finance",
+              email: "elizabeth@amwllc.net",
+              img: null,
             },
             {
               name: "Nick Joseph",
@@ -352,14 +348,6 @@ const WilmingtonLanding = () => {
               img: nickImg,
             },
           ].map((m, i) => (
-            // <motion.div
-            //   key={i}
-            //   initial={{ opacity: 0 }}
-            //   animate={{ opacity: 1 }}
-            //   viewport={{ once: true }}
-            //   transition={{ duration: 0.4, delay: i * 0.1 }}
-            //   className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
-            // >
             <motion.div
               key={i}
               initial={{ opacity: 0 }}
@@ -369,11 +357,22 @@ const WilmingtonLanding = () => {
               className="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-lg transition-all"
             >
               <div className="aspect-[4/5] overflow-hidden bg-slate-200">
-                <img
-                  src={m.img}
-                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${m.name === "Leo Andrades" ? "object-top" : ""}`}
-                  alt={m.name}
-                />
+                {m.img ? (
+                  <img
+                    src={m.img}
+                    className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                      m.name === "Leo Andrades" ? "object-top" : ""
+                    }`}
+                    alt={m.name}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-slate-100">
+                    <User
+                      className="w-32 h-32 text-slate-300"
+                      strokeWidth={1.2}
+                    />
+                  </div>
+                )}
               </div>
               <div className="p-6 md:p-8 text-center sm:text-left">
                 <h3 className="text-xl md:text-2xl font-bold mb-1">{m.name}</h3>
@@ -501,20 +500,55 @@ const WilmingtonLanding = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-6 md:p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex gap-6 items-center">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
-                  <Mail className="w-5 h-5 md:w-6 md:h-6" />
+              <div className="p-6 md:p-8 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-700 shrink-0">
+                    <Mail className="w-5 h-5 md:w-6 md:h-6" />
+                  </div>
+
+                  <div>
+                    <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                      Email
+                    </h4>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                    Email
-                  </h4>
-                  <a
-                    href="mailto:info@amwllc.net"
-                    className="text-lg md:text-xl font-bold text-blue-700 hover:underline"
-                  >
-                    info@amwllc.net
-                  </a>
+
+                <div className="space-y-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-slate-100 pb-3">
+                    <span className="text-slate-600 font-medium">
+                      General & New HOA Requests
+                    </span>
+                    <a
+                      href="mailto:info@amwllc.net"
+                      className="text-blue-700 font-semibold hover:underline"
+                    >
+                      info@amwllc.net
+                    </a>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-slate-100 pb-3">
+                    <span className="text-slate-600 font-medium">
+                      Closings & Sales
+                    </span>
+                    <a
+                      href="mailto:closings@amwllc.net"
+                      className="text-blue-700 font-semibold hover:underline"
+                    >
+                      closings@amwllc.net
+                    </a>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-slate-100 pb-3">
+                    <span className="text-slate-600 font-medium">
+                      New Owners
+                    </span>
+                    <a
+                      href="mailto:staff@amwllc.net"
+                      className="text-blue-700 font-semibold hover:underline"
+                    >
+                      staff@amwllc.net
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -523,7 +557,6 @@ const WilmingtonLanding = () => {
       </section>
 
       {/* --- OFFICES SECTION --- */}
-      {/* FIX: `py-29` → `py-20` */}
       <section id="offices" className="py-20 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           {sectionHeader("Locations", "Our Wilmington Offices")}
@@ -544,14 +577,6 @@ const WilmingtonLanding = () => {
                   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3297.8026479713712!2d-77.88214867427493!3d34.25357912308178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89a9f4d66bec9f4b%3A0x727ecd96c6b757ad!2sHunters%20Crossing%20Apartments!5e0!3m2!1sen!2sus!4v1742838535775!5m2!1sen!2sus",
               },
             ].map((office, i) => (
-              // <motion.div
-              //   key={i}
-              //   initial={{ opacity: 0 }}
-              //   animate={{ opacity: 1 }}
-              //   viewport={{ once: true }}
-              //   transition={{ duration: 0.4, delay: i * 0.1 }}
-              //   className="group flex flex-col md:flex-row gap-6 md:gap-8 p-6 md:p-8 bg-slate-50 rounded-[32px] md:rounded-[40px] border border-slate-100 shadow-sm transition-all hover:shadow-lg"
-              // >
               <motion.div
                 key={i}
                 initial={{ opacity: 0 }}
